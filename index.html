@@ -5,6 +5,7 @@
     <title>Multi Counter</title>
     <script src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="css/ericmeyer.css">
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
   <body>
     <!-- Button to add new counter -->
@@ -14,7 +15,8 @@
 
     <template id="counter">
       <div class="counterContainer">
-        <input type="text" value="">
+        <input class="counterName" type="text" value="">
+        <br>
         <button class="counterButton" type="button" name="counter" onClick="countFunction(this)">0</button>
       </div>
     </template>

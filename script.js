@@ -24,3 +24,8 @@ function countFunction(elem) {
 }
 
 document.addEventListener('DOMContentLoaded', afterPageLoads); /* Triggers the function after the page has loaded */
+
+// Confirmation alert/popup on reload to prevent user from accidentally leaving page & losing counters
+window.onbeforeunload = function() {
+     return "";
+ };
