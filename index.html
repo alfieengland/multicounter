@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Multi Counter</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/ericmeyer.css">
+  </head>
+  <body>
+    <!-- Button to add new counter -->
+    <button id="addCounter" type="button" name="addCounter">Add New Counter</button>
+    <!-- Functional Counter -->
+    <!--<button class="counterButton" type="button" name="counter0">Count = 0</button>-->
+
+    <template id="counter">
+      <div class="counterContainer">
+        <input type="text" value="">
+        <button class="counterButton" type="button" name="counter" onClick="countFunction(this)">0</button>
+      </div>
+    </template>
+  </body>
+</html>
