@@ -5,8 +5,8 @@
 }
 
 .counterContainer {
-  width: 240px;
-  height: 100px;
+  width: calc(100% / 5); /* Fits 5 columns of counters evenly onscreen*/
+  height: calc((100vh / 5) - ((50px + 1em) / 5)); /* Allows 5 rows of evenly-sized counters to fit onscreen, whilst compensating for "Add New Counter" button */
   float: left; /* Stops counters from being placed one per row (going top to bottom) */
   outline: 1px solid black;
 }
