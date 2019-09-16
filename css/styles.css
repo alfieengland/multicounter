@@ -45,3 +45,7 @@ input {
   bottom: 0;
   background: #999;
 }
+
+#labelTotal {
+  margin-top: 6px;
+}
