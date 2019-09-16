@@ -9,16 +9,19 @@
   </head>
   <body>
     <!-- Button to add new counter -->
-    <button id="addCounter" type="button" name="addCounter">Add New Counter</button>
-    <!-- Functional Counter -->
-    <!--<button class="counterButton" type="button" name="counter0">Count = 0</button>-->
+    <button id="addCounter" type="button">Add New Counter</button>
 
+    <!-- Template HTML for the counter button/name, instantised each time "Add New Counter" is clicked -->
     <template id="counter">
       <div class="counterContainer">
         <input class="counterName" type="text" value="">
         <br>
-        <button class="counterButton" type="button" name="counter" onClick="countFunction(this)">0</button>
+        <button class="counterButton" type="button" onClick="countFunction(this)">0</button>
       </div>
     </template>
+    <!-- Footer containing useful information -->
+    <div class="footer">
+      <label id="labelTotal">Total: 0</label>
+    </div>
   </body>
 </html>

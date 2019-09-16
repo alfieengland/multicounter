@@ -1,8 +1,9 @@
 /* Variables */
 :root {
   --counterNameHeight: 30px;
-  --counterRows: 3;
-  --counterColumns: 6;
+  --counterRows: 3; /* Number of counters that fit comfortably onscreen vertically between the "Add New Counter" button and footer */
+  --counterColumns: 6; /* Number of counters that fit comfortably onscreen horizontally before */
+  --footerHeight: 28px;
 }
 
 #addCounter {
@@ -13,9 +14,9 @@
 
 .counterContainer {
   width: calc(100% / var(--counterColumns)); /* Fits 5 columns of counters evenly onscreen*/
-  height: calc((100vh / var(--counterRows)) - ((50px + 1em) / var(--counterRows))); /* Allows 5 rows of evenly-sized counters to fit onscreen, whilst compensating for "Add New Counter" button */
+  height: calc((100vh / var(--counterRows)) - ((50px + 1em + var(--footerHeight)) / var(--counterRows))); /* Allows 5 rows of evenly-sized counters to fit onscreen, whilst compensating for "Add New Counter" button */
   float: left; /* Stops counters from being placed one per row (going top to bottom) */
-  outline: 1px solid black;
+  outline: 1px solid black; /* Puts 1px thick black line around each counter instance */
 }
 
 .counterName {
@@ -34,4 +35,13 @@
 /* Ensures input (i.e. text) elements are not wider than their parent element/div */
 input {
   box-sizing: border-box;
+}
+
+.footer {
+  text-align: center;
+  position: fixed;
+  height: var(--footerHeight);
+  width: 100%;
+  bottom: 0;
+  background: #999;
 }
