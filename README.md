@@ -15,18 +15,8 @@ Simply and quickly create and use multiple click-counters, useful to count multi
 
 ### Eric Meyer Reset
 
-http://meyerweb.com/eric/tools/css/reset/ 
+http://meyerweb.com/eric/tools/css/reset/
 
 v2.0 | 20110126
 
 License: none (public domain)
-
-### Odometer v.0.4.7
-
-https://github.com/HubSpot/odometer/releases/tag/v0.4.7
-
-Used for counter number animations.
-
-Copyright (c) 2013 HubSpot, Inc.
-
-License: MIT https://github.com/HubSpot/odometer/blob/master/LICENSE
