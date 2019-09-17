@@ -1,8 +1,8 @@
 /* Variables */
 :root {
   --counterNameHeight: 30px;
-  --counterRows: 3; /* Number of counters that fit comfortably onscreen vertically between the "Add New Counter" button and footer */
   --counterColumns: 6; /* Number of counters that fit comfortably onscreen horizontally before */
+  --counterRows: 3; /* Number of counters that fit comfortably onscreen vertically between the "Add New Counter" button and footer */
   --footerHeight: 28px;
 }
 
@@ -38,7 +38,6 @@ input {
 }
 
 .footer {
-  text-align: center;
   position: fixed;
   height: var(--footerHeight);
   width: 100%;
@@ -46,6 +45,14 @@ input {
   background: #999;
 }
 
-#labelTotal {
+.footerLabel {
+  float: left;
   margin-top: 6px;
+  margin-left: 12px;
+}
+
+.footer input {
+  float: left;
+  margin-top: 4px;
+  margin-left: 4px;
 }

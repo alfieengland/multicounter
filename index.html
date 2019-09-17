@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Multi Counter</title>
-    <script src="script.js"></script>
     <link rel="stylesheet" type="text/css" href="css/ericmeyer.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="script.js"></script>
   </head>
   <body>
     <!-- Button to add new counter -->
@@ -21,7 +21,11 @@
     </template>
     <!-- Footer containing useful information -->
     <div class="footer">
-      <p id="labelTotal">Total: 0</p>
+      <div class="footerLabel" id="labelTotal">Total: 0</div>
+      <div class="footerLabel" id="labelColumns">Columns: </div>
+      <input type="number" id="inputColumns" min="1" max="24">
+      <div class="footerLabel" id="labelRows">Rows: </div>
+      <input type="number" id="inputRows" min="1" max="24">
     </div>
   </body>
 </html>
