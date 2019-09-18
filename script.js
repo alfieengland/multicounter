@@ -22,10 +22,11 @@ function afterPageLoads() {
   inputRows = document.getElementById('inputRows');
 
   // Set aforementioned inputs' values to their corresponding initial CSS variable values (as found in styles.css)
-  inputColumns.value = cssColumns; // Set
+  inputColumns.value = cssColumns;
   inputRows.value = cssRows;
 }
 
+// Create a new counter instance from the html template every time "Add New Counter" button is pressed
 function addCounter() {
   counterTemplate = document.querySelector('#counter');
   var clone = counterTemplate.content.cloneNode(true);
@@ -33,20 +34,22 @@ function addCounter() {
   counters += 1; // Add one to the total number of "counters" current present on the page
 }
 
+// Add 1 to the corresponding counter button (works for all counter instances using 'this' argument)
 function countFunction(elem) {
   var currentValue = parseInt(elem.innerHTML) + 1;
   elem.innerHTML = currentValue;
   countersTotal();
 }
 
-document.addEventListener('DOMContentLoaded', afterPageLoads); /* Triggers the function after the page has loaded */
+// Triggers 'afterPageLoads' function after the page loads
+document.addEventListener('DOMContentLoaded', afterPageLoads);
 
 // Confirmation alert/popup on reload to prevent user from accidentally leaving page & losing counters
 window.onbeforeunload = function() {
   return "";
 };
 
-// Update "Total" count label
+// Update "Total" count label found in footer upon clicking and counter button instance
 function countersTotal() {
   countTotal += 1;
   labelTotal.innerHTML = "Total: " + countTotal;
