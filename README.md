@@ -2,8 +2,9 @@
 Simply and quickly create and use multiple click-counters, useful to count multiples of specific items within a total set of objects (e.g. models of cars out of all cars in a car park).
 
 ## To Do
-- Change amount of columns/rows on the fly
-- Sort counters by count or into alphabetical order
+- ~~Change amount of columns/rows on the fly~~
+- Add "Fit" or "Auto" tickbox config to automatically fit all counters to screen (greys out rows/columns input when enabled)
+- Sort counters by count or into alphabetical order (both by either ascending & decending)
 - Keyboard shortcut to add counter
 - Keyboard shortcuts (numpad) to add 1 to corresponding counter
 - Remove/minus from counter
