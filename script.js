@@ -7,6 +7,9 @@ var cssColumns;
 var cssRows;
 var inputColumns;
 var inputRows;
+// Used to update rows/columns css variables, initialised here to prevent them resetting every time changeRows or changeColumns are called
+var newRows;
+var newColumns;
 
 function afterPageLoads() {
   btnAddCounter = document.getElementById('addCounter');
@@ -53,4 +56,22 @@ window.onbeforeunload = function() {
 function countersTotal() {
   countTotal += 1;
   labelTotal.innerHTML = "Total: " + countTotal;
+}
+
+// Update CSS rows variable to match newly-changed rows input value
+function changeRows() {
+  // If statement used to prevent code triggering twice due to "onClick", "onKeyPress", "onPaste" & "onInput" sometimes occuring simultaneously
+  if (newRows != inputRows.value) {
+    newRows = inputRows.value;
+    cssRows = parseInt(document.documentElement.style.setProperty('--counterRows', newRows));
+  }
+}
+
+// Update CSS columns variable to match newly-changed columns input value
+function changeColumns() {
+  // If statement used to prevent code triggering twice due to "onClick", "onKeyPress", "onPaste" & "onInput" sometimes occuring simultaneously
+  if (newColumns != inputColumns.value) {
+    newColumns = inputColumns.value;
+    cssColumns = parseInt(document.documentElement.style.setProperty('--counterColumns', newColumns));
+  }
 }
