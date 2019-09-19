@@ -41,7 +41,6 @@ function addCounter() {
   counterNameElements = document.getElementsByClassName('counterName');
   for (var i = 0; i < counterNameElements.length; i++) {
     latestCounterNameElement = counterNameElements[i];
-    console.log('test');
   }
   latestCounterNameElement.focus();
 }
