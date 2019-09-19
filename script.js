@@ -1,6 +1,8 @@
 var btnAddCounter;
 var counters = 0; // Number of counters active/onscreen, initialised as 0
 var counterTemplate;
+var counterNameElements;
+var latestCounterNameElement;
 var labelTotal; // Label element "labelTotal" which shows the total count of all counters
 var countTotal = 0; // Int of combined counters' amounts
 var cssColumns;
@@ -35,6 +37,13 @@ function addCounter() {
   var clone = counterTemplate.content.cloneNode(true);
   document.body.appendChild(clone); // Add an instance HTML elements/contents present withing counterTemplate to the page
   counters += 1; // Add one to the total number of "counters" current present on the page
+  // The following code auto-focuses to the name/text input element of a newly-created counter
+  counterNameElements = document.getElementsByClassName('counterName');
+  for (var i = 0; i < counterNameElements.length; i++) {
+    latestCounterNameElement = counterNameElements[i];
+    console.log('test');
+  }
+  latestCounterNameElement.focus();
 }
 
 // Add 1 to the corresponding counter button (works for all counter instances using 'this' argument)
