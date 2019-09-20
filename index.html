@@ -14,6 +14,7 @@
     <!-- Template HTML for the counter button/name, instantised each time "Add New Counter" is clicked -->
     <template id="counter">
       <div class="counterContainer">
+        <input class="counterCheckbox" type="checkbox">
         <input class="counterName" type="text" value="">
         <br>
         <button class="counterButton" type="button" onClick="countFunction(this)">0</button>
@@ -26,6 +27,7 @@
       <input type="number" id="inputColumns" min="1" max="24" onClick="changeColumns()" onKeyPress="changeColumns()" onPaste="changeColumns()" onInput="changeColumns()">
       <div class="footerLabel" id="labelRows">Rows: </div>
       <input type="number" id="inputRows" min="1" max="24" onClick="changeRows()" onKeyPress="changeRows()" onPaste="changeRows()" onInput="changeRows()">
+      <button class="deleteButton" type="button" onClick="deleteCounters()">Delete Selected Counters</button>
     </div>
   </body>
 </html>

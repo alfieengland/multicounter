@@ -3,7 +3,7 @@
   --counterNameHeight: 30px;
   --counterColumns: 6; /* Number of counters that fit comfortably onscreen horizontally before */
   --counterRows: 3; /* Number of counters that fit comfortably onscreen vertically between the "Add New Counter" button and footer */
-  --footerHeight: 28px;
+  --footerHeight: 30px;
 }
 
 #addCounter {
@@ -19,10 +19,21 @@
   outline: 1px solid black; /* Puts 1px thick black line around each counter instance */
 }
 
+.counterCheckbox {
+  text-align: center;
+  height: calc(var(--counterNameHeight) - 3px);
+  border: 0;
+  width: 10%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
 .counterName {
-  width: 100%;
+  width: 90%;
   height: var(--counterNameHeight);
   text-align: center;
+  float: left;
 }
 
 .counterButton {
@@ -51,7 +62,8 @@ input {
   margin-left: 12px;
 }
 
-.footer input {
+.footer input,
+.footer button {
   float: left;
   margin-top: 4px;
   margin-left: 4px;

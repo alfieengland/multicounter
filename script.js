@@ -3,6 +3,7 @@ var counters = 0; // Number of counters active/onscreen, initialised as 0
 var counterTemplate;
 var counterNameElements;
 var latestCounterNameElement;
+var counterCheckboxElements;
 var labelTotal; // Label element "labelTotal" which shows the total count of all counters
 var countTotal = 0; // Int of combined counters' amounts
 var cssColumns;
@@ -81,5 +82,21 @@ function changeColumns() {
   if (newColumns != inputColumns.value) {
     newColumns = inputColumns.value;
     cssColumns = parseInt(document.documentElement.style.setProperty('--counterColumns', newColumns));
+  }
+}
+
+// Delete any and all counters that have their corresponding checkbox currently ticked
+function deleteCounters() {
+  var checkedCounters = []; // Initialises blank array in which all counters with checked tickboxes will be identified
+  counterCheckboxElements = document.getElementsByClassName('counterCheckbox');
+  // For loop to add element names of all counters with ticked checkboxes to checkedCounters array
+  for (var i = 0; i < counterCheckboxElements.length; i++) {
+    if (counterCheckboxElements[i].checked) {
+      checkedCounters.push(counterCheckboxElements[i].parentNode);
+    }
+  }
+  // Deletes all counters with their checkbox ticked (all elements within checkedCounters)
+  for (var i = 0; i < checkedCounters.length; i++) {
+    checkedCounters[i].parentNode.removeChild(checkedCounters[i]);
   }
 }
