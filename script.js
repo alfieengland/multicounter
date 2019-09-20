@@ -97,6 +97,10 @@ function deleteCounters() {
   }
   // Deletes all counters with their checkbox ticked (all elements within checkedCounters)
   for (var i = 0; i < checkedCounters.length; i++) {
+    // Updates countTotal integer to account for the upcoming removal of currently-handled counter
+    countTotal -= checkedCounters[i].childNodes[5].innerHTML;
     checkedCounters[i].parentNode.removeChild(checkedCounters[i]);
   }
+  // Updates total label to account for count of remove counters
+  labelTotal.innerHTML = "Total: " + countTotal;
 }
