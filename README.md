@@ -1,5 +1,5 @@
 # Multi Counter
-Simply and quickly create and use multiple click-counters, useful to count multiples of specific items within a total set of objects (e.g. models of cars out of all cars in a car park).
+Simply and quickly create, name, use and delete multiple click-counters, useful to count multiples of specific items within a total set of objects (e.g. models of cars out of a larger group of cars).
 
 ## To Do
 - ~~Change amount of columns/rows on the fly~~
