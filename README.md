@@ -11,6 +11,7 @@ Simply and quickly create and use multiple click-counters, useful to count multi
 - Remove/minus from counter
 - Warning if 2 counters of same name are present (with option to combine?)
 - Colour code (grey for 0 count, red for negative, green for highest, yellow for lowest etc)
+- Add tick boxes to counters to allow counter deletion as well as adding to multiple counters simultaneously
 
 ## External Code Used
 
