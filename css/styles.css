@@ -16,6 +16,10 @@
   --pastelPurple: #c5bdee;
 }
 
+.arial {
+  font: 400 15.4px Arial;
+}
+
 .whiteBG {
   background-color: #fff;
   transition: all 0.2s;
