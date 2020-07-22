@@ -83,10 +83,11 @@ input {
 
 .footer {
   position: fixed;
+  background: var(--pastelPurple);
+  z-index: 1;
   height: var(--footerHeight);
   width: 100%;
   bottom: 0;
-  background: #999;
 }
 
 .footerLabel {
