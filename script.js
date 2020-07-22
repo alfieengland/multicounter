@@ -48,6 +48,12 @@ function addCounter() {
   addCounterDensity();
 }
 
+// Update "Total" count label found in footer upon clicking any counter button instance
+function countersTotal() {
+  countTotal += 1;
+  labelTotal.innerHTML = "Total: " + countTotal;
+}
+
 // Add 1 to the corresponding counter button (works for all counter instances using 'this' argument)
 function countFunction(elem) {
   var currentValue = parseInt(elem.innerHTML) + 1;
@@ -60,14 +66,10 @@ document.addEventListener('DOMContentLoaded', afterPageLoads);
 
 // Confirmation alert/popup on reload to prevent user from accidentally leaving page & losing counters
 window.onbeforeunload = function() {
-  return "";
+  if (counters != 0) {
+    return "";
+  }
 };
-
-// Update "Total" count label found in footer upon clicking and counter button instance
-function countersTotal() {
-  countTotal += 1;
-  labelTotal.innerHTML = "Total: " + countTotal;
-}
 
 // Update CSS rows variable to match newly-changed rows input value
 function changeRows() {
