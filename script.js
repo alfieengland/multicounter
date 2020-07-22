@@ -37,13 +37,15 @@ function addCounter() {
   counterTemplate = document.querySelector('#counter');
   var clone = counterTemplate.content.cloneNode(true);
   document.body.appendChild(clone); // Add an instance HTML elements/contents present withing counterTemplate to the page
-  counters += 1; // Add one to the total number of "counters" current present on the page
+  counters += 1; // Add one to the total number of "counters" currently present on the page
   // The following code auto-focuses to the name/text input element of a newly-created counter
   counterNameElements = document.getElementsByClassName('counterName');
   for (var i = 0; i < counterNameElements.length; i++) {
     latestCounterNameElement = counterNameElements[i];
   }
   latestCounterNameElement.focus();
+
+  addCounterDensity();
 }
 
 // Add 1 to the corresponding counter button (works for all counter instances using 'this' argument)
@@ -87,11 +89,13 @@ function changeColumns() {
 
 // Delete any and all counters that have their corresponding checkbox currently ticked
 function deleteCounters() {
+  var checked = 0; // Number of boxes checked upon "Delete Selected Counters" being pressed
   var checkedCounters = []; // Initialises blank array in which all counters with checked tickboxes will be identified
   counterCheckboxElements = document.getElementsByClassName('counterCheckbox');
   // For loop to add element names of all counters with ticked checkboxes to checkedCounters array
   for (var i = 0; i < counterCheckboxElements.length; i++) {
     if (counterCheckboxElements[i].checked) {
+      checked +=1;
       checkedCounters.push(counterCheckboxElements[i].parentNode);
     }
   }
@@ -103,4 +107,41 @@ function deleteCounters() {
   }
   // Updates total label to account for count of remove counters
   labelTotal.innerHTML = "Total: " + countTotal;
+
+  // Adjust number of counters var based on total amount checked upon deletion
+  counters -= checked;
+
+  addCounterDensity();
+}
+
+function addCounterDensity() {
+  switch (counters) {
+    case 0:
+      counterDensity = '#c5bdee';
+      break;
+    case 1:
+      counterDensity = '#b8aeea';
+      break;
+    case 2:
+      counterDensity = '#a69ae5';
+      break;
+    case 3:
+      counterDensity = '#9485e0';
+      break;
+    case 4:
+      counterDensity = '#8371da';
+      break;
+    case 5:
+      counterDensity = '#715dd5';
+      break;
+    case 6:
+      counterDensity = '#5f49d0';
+      break;
+    case 7:
+      counterDensity = '#4d34cb';
+      break;
+    default:
+      counterDensity = '#4d34cb';
+  }
+  document.getElementById("addCounter").style.backgroundColor = counterDensity;
 }

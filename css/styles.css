@@ -4,12 +4,38 @@
   --counterColumns: 6; /* Number of counters that fit comfortably onscreen horizontally before */
   --counterRows: 3; /* Number of counters that fit comfortably onscreen vertically between the "Add New Counter" button and footer */
   --footerHeight: 30px;
+
+  /* Colours */
+  --darkPurple: #190933;
+  /* Pastel */
+  --pastelPink: #f7c2d6;
+  --pastelOrange: #f8b5a9;
+  --pastelYellow: #fdffb5;
+  --pastelGreen: #a3e7c4;
+  --pastelBlue: #c2f0fd;
+  --pastelPurple: #c5bdee;
+}
+
+.whiteBG {
+  background-color: #fff;
+  transition: all 0.2s;
+}
+
+.whiteBG:hover {
+  color: #fff;
+  background-color: #c5b9ee;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 #addCounter {
   border: 0;
   width: 100%;
   padding: 25px 0px 25px 0px;
+  color: #fff;
+  background-color: var(--pastelPurple);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.30), 0 10px 10px rgba(0,0,0,0.20);
+  position: relative;
+  z-index: relative;
 }
 
 .counterContainer {
@@ -17,6 +43,7 @@
   height: calc((100vh / var(--counterRows)) - ((50px + 1em + var(--footerHeight)) / var(--counterRows))); /* Allows 5 rows of evenly-sized counters to fit onscreen, whilst compensating for "Add New Counter" button */
   float: left; /* Stops counters from being placed one per row (going top to bottom) */
   outline: 1px solid black; /* Puts 1px thick black line around each counter instance */
+  position: relative;
 }
 
 .counterCheckbox {
@@ -27,20 +54,26 @@
   margin: 0;
   padding: 0;
   cursor: pointer;
+  outline: 0;
 }
 
 .counterName {
   width: 90%;
   height: var(--counterNameHeight);
   text-align: center;
-  float: left;
+  float: left;.
+  transition: all 0.2s;
 }
 
 .counterButton {
   border: 0;
   width: 100%;
   height: calc(100% - var(--counterNameHeight));
-  background-color: #999;
+}
+
+.counterName, .counterButton {
+  outline: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 /* Ensures input (i.e. text) elements are not wider than their parent element/div */
