@@ -22,6 +22,8 @@
     <!-- Footer containing useful information -->
     <div class="footer arial">
       <div class="footerLabel" id="labelTotal">Total: 0</div>
+      <div class="footerLabel" id="labelAutoFit">Auto Fit: </div>
+      <input type="checkbox" id="autoFit" name="autoFit" onclick="autoFitToggle()" checked>
       <div class="footerLabel" id="labelColumns">Columns: </div>
       <input type="number" id="inputColumns" min="1" max="24" onClick="changeColumns()" onKeyPress="changeColumns()" onPaste="changeColumns()" onInput="changeColumns()">
       <div class="footerLabel" id="labelRows">Rows: </div>

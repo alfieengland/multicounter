@@ -1,7 +1,7 @@
 /* Variables */
 :root {
   --counterNameHeight: 30px;
-  --counterColumns: 6; /* Number of counters that fit comfortably onscreen horizontally before */
+  --counterColumns: 3; /* Number of counters that fit comfortably onscreen horizontally before */
   --counterRows: 3; /* Number of counters that fit comfortably onscreen vertically between the "Add New Counter" button and footer */
   --footerHeight: 30px;
 

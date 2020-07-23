@@ -11,8 +11,12 @@ var cssRows;
 var inputColumns;
 var inputRows;
 // Used to update rows/columns css variables, initialised here to prevent them resetting every time changeRows or changeColumns are called
-var newRows;
 var newColumns;
+var newRows;
+
+// Calculated number of rows/columns based on number of counters present
+var autoRows;
+var autoColumns;
 
 function afterPageLoads() {
   btnAddCounter = document.getElementById('addCounter');
@@ -30,6 +34,84 @@ function afterPageLoads() {
   // Set aforementioned inputs' values to their corresponding initial CSS variable values (as found in styles.css)
   inputColumns.value = cssColumns;
   inputRows.value = cssRows;
+
+  // Set configurable columns/row footer elements to hidden on page loads
+  document.getElementById("labelColumns").style.visibility = "hidden";
+  document.getElementById("inputColumns").style.visibility = "hidden";
+  document.getElementById("labelRows").style.visibility = "hidden";
+  document.getElementById("inputRows").style.visibility = "hidden";
+}
+
+// Dynamically scale/position counters based on number on screen as well as screen size
+function counterPositioning() {
+  var counterContainers = document.getElementsByClassName("counterContainer");
+  for (var x=0; x < counterContainers.length; x++) {
+    if (counters == 1) {
+      autoColumns = 1;
+      autoRows = 1;
+    } else if (counters == 2) {
+      autoColumns = 1;
+      autoRows = 2;
+    } else if (counters == 3) {
+      autoColumns = 3;
+      autoRows = 1;
+    } else if (counters == 4) {
+      autoColumns = 2;
+      autoRows = 2;
+    } else if (counters == 5 || counters == 6) {
+      autoColumns = 3;
+      autoRows = 2;
+    } else if (counters >= 7 && counters <= 9) {
+      autoColumns = 3;
+      autoRows = 3;
+    } else if (counters >= 10 && counters <= 12) {
+      autoColumns = 4;
+      autoRows = 3;
+    } else if (counters >= 13 && counters <= 15) {
+      autoColumns = 5;
+      autoRows = 3;
+    } else if (counters >= 16 && counters <= 20) {
+      autoColumns = 5;
+      autoRows = 4;
+    } else if (counters >= 21 && counters <= 24) {
+      autoColumns = 6;
+      autoRows = 4;
+    } else if (counters >= 25 && counters <= 28) {
+      autoColumns = 7;
+      autoRows = 4;
+    } else if (counters >= 29 && counters <= 35) {
+      autoColumns = 7;
+      autoRows = 5;
+    } else if (counters >= 29 && counters <= 35) {
+      autoColumns = 7;
+      autoRows = 5;
+    } else {
+      autoColumns = 8;
+      autoRows = 6;
+    }
+
+    // Update css column.row variables using js column/row variables as set in above if statements
+    document.documentElement.style.setProperty("--counterColumns", autoColumns);
+    document.documentElement.style.setProperty("--counterRows", autoRows);
+  }
+}
+
+// Triggers everytime "AutoFit" checkbox clicked
+function autoFitToggle() {
+  if (autoFit.checked != true) {
+    changeRows();
+    changeColumns();
+    document.getElementById("labelColumns").style.visibility = "visible";
+    document.getElementById("inputColumns").style.visibility = "visible";
+    document.getElementById("labelRows").style.visibility = "visible";
+    document.getElementById("inputRows").style.visibility = "visible";
+  } else {
+    document.getElementById("labelColumns").style.visibility = "hidden";
+    document.getElementById("inputColumns").style.visibility = "hidden";
+    document.getElementById("labelRows").style.visibility = "hidden";
+    document.getElementById("inputRows").style.visibility = "hidden";
+    counterPositioning();
+  }
 }
 
 // Create a new counter instance from the html template every time "Add New Counter" button is pressed
@@ -46,6 +128,11 @@ function addCounter() {
   latestCounterNameElement.focus();
 
   addCounterDensity();
+
+  // Update grid auto-scaling/positioning if autoFit is enabled
+  if (autoFit.checked == true) {
+    counterPositioning();
+  }
 }
 
 // Update "Total" count label found in footer upon clicking any counter button instance
@@ -72,9 +159,11 @@ window.onbeforeunload = function() {
 };
 
 // Update CSS rows variable to match newly-changed rows input value
+/* changeRows & changeColumns if statement condition meanings:
+   "newRows != inputRows.value" & "newColumns != inputColumns.value" - prevent code triggering twice due to "onClick", "onKeyPress", "onPaste" & "onInput" sometimes occuring simultaneously
+   "cssRows != inputRows.value" & "cssColumns != inputColumns.value" - Allow if-statement to trigger when checking/unchecking "Auto Fit" by comparing amount of rows/columns present to values in footer "Columns" / "Rows" inputs */
 function changeRows() {
-  // If statement used to prevent code triggering twice due to "onClick", "onKeyPress", "onPaste" & "onInput" sometimes occuring simultaneously
-  if (newRows != inputRows.value) {
+  if (newRows != inputRows.value || cssRows != inputRows.value) {
     newRows = inputRows.value;
     cssRows = parseInt(document.documentElement.style.setProperty('--counterRows', newRows));
   }
@@ -82,8 +171,7 @@ function changeRows() {
 
 // Update CSS columns variable to match newly-changed columns input value
 function changeColumns() {
-  // If statement used to prevent code triggering twice due to "onClick", "onKeyPress", "onPaste" & "onInput" sometimes occuring simultaneously
-  if (newColumns != inputColumns.value) {
+  if (newColumns != inputColumns.value || cssColumns != inputColumns.value) {
     newColumns = inputColumns.value;
     cssColumns = parseInt(document.documentElement.style.setProperty('--counterColumns', newColumns));
   }
@@ -114,6 +202,10 @@ function deleteCounters() {
   counters -= checked;
 
   addCounterDensity();
+  // Update grid auto-scaling/positioning if autoFit is enabled
+  if (autoFit.checked == true) {
+    counterPositioning();
+  }
 }
 
 function addCounterDensity() {
