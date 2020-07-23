@@ -67,12 +67,18 @@
   text-align: center;
   float: left;.
   transition: all 0.2s;
+  border: 0;
+}
+
+.counterName:focus {
+  border: 1px solid black;
 }
 
 .counterButton {
   border: 0;
   width: 100%;
   height: calc(100% - var(--counterNameHeight));
+  background: rgba(0,0,0,0.0) /* Make button background transparent to allow full container-colouring on hover */
 }
 
 .counterName, .counterButton {
