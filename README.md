@@ -15,6 +15,7 @@ Simply and quickly create, name, use and delete multiple click-counters, useful 
 - Button to add count to all counters simultaneously
 - Button to add count to currently-selected counters simultaneously
 - Option to 'Lock' counters, preventing deletion, count/number change, name change etc.
+- Print current counters to text file / copy text / .csv
 - ~~Change amount of columns/rows on the fly~~
 - ~~Add tick boxes to counters to allow counter deletion~~
 - ~~Add "Fit" or "Auto" tickbox config to automatically fit all counters to screen (hides rows/columns input when enabled)~~
