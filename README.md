@@ -5,8 +5,8 @@ Simply and quickly create, name, use and delete multiple click-counters, useful 
 - Add 2nd "Fit" option to fit counters to screen up to configured amount (e.g. if the amount of rows is 5, when there are 2, 3, 4 or 5 counters in the current row, they will be split evenly on screen, any more than that will be pushed onto a new row) to eliminate blank space 
 - Sort counters by count or into alphabetical order (both by either ascending & decending)
 - Keyboard shortcut to add/delete counter
-- Keyboard shortcuts (numpad) to add 1 to corresponding counter
-- Remove/minus from counter
+- Keyboard shortcuts (numpad) to add 1 to corresponding counter (Ctrl to do the next number up e.g. 1-9 then 10-19 with Ctrl)
+- Remove/minus from counter (right-click)
 - Reset counter
 - Warning if 2 counters of same name are present (with option to combine?)
 - Counter colour density (colour gets darker based on count)
