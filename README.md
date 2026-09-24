@@ -19,6 +19,7 @@ Simply and quickly create, name, use and delete multiple click-counters, useful 
 - ~~Change amount of columns/rows on the fly~~
 - ~~Add tick boxes to counters to allow counter deletion~~
 - ~~Add "Fit" or "Auto" tickbox config to automatically fit all counters to screen (hides rows/columns input when enabled)~~
+- Add a "Mode" or setting to make it currency/number based so you can tot up different counters (Useful for stock taking type jobs?) Ticking using the selection tickboxes adds them to total
 
 ## External Code Used
 
